@@ -40,7 +40,7 @@ class Server:
         assert type(page) is int and page > 0
         assert type(page_size) is int and page_size > 0
         data = self.dataset()
-        
+
         try:
             start, end = index_range(page, page_size)
             return data[start: end]
