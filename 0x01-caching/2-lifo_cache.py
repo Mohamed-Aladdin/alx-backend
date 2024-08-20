@@ -11,7 +11,7 @@ class LIFOCache(BaseCaching):
     def __init__(self):
         """Initialize
         """
-        super.__init__()
+        super().__init__()
 
     def put(self, key, item):
         """Add an item in the cache
