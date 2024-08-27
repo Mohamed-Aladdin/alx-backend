@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Task 0 Module"""
 
-from flask import flask, render_template
+from flask import Flask, render_template
 
-app = flask(__name__)
+app = Flask(__name__)
 
 
 @app.route('/')

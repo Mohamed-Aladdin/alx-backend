@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Task 2 Module"""
 
-from flask import flask, render_template, request
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
@@ -13,7 +13,7 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app = flask(__name__)
+app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
