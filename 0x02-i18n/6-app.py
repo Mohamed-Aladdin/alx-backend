@@ -32,10 +32,11 @@ def get_user():
     cannot be found or if login_as was not passed
     """
     login_id = request.args.get('login_as')
-    
+
     if login_id:
         return users.get(int(login_id))
     return None
+
 
 @app.before_request
 def before_request():
@@ -44,6 +45,7 @@ def before_request():
     """
     user = get_user()
     g.user = user
+
 
 @babel.localeselector
 def get_locale():
@@ -65,6 +67,7 @@ def get_locale():
         return locale
 
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 @app.route('/')
 def hello_world():
