@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task 3 Module"""
+"""Task 4 Module"""
 
 from flask import flask, render_template, request
 from flask_babel import Babel
@@ -22,13 +22,18 @@ babel = Babel(app)
 def get_locale():
     """to determine the best match with our supported languages
     """
+    locale = request.args.get('locale')
+    
+    if locale in app.config['LANGUAGES']:
+        print(locale)
+        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 @app.route('/')
 def hello_world():
     """GET route to home page
     """
-    return render_template('3-index.html')
+    return render_template('4-index.html')
 
 
 if __name__ == '__main__':
