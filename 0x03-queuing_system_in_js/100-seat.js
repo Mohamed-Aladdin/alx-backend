@@ -26,9 +26,9 @@ async function resetAvailableSeats(initialSeats) {
 }
 
 app.get('/available_seats', (_req, res) => {
-  getCurrentAvailableSeats()
-    .then((result) => Number.parseInt(result || 0))
-    .then((availableSeats) => res.json({ availableSeats }));
+  getCurrentAvailableSeats().then((availableSeats) =>
+    res.json({ availableSeats })
+  );
 });
 
 app.get('/reserve_seat', (_req, res) => {
