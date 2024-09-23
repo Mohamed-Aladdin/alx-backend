@@ -26,9 +26,9 @@ async function resetAvailableSeats(initialSeats) {
 }
 
 app.get('/available_seats', (_req, res) => {
-  getCurrentAvailableSeats().then((availableSeats) =>
-    res.json({ availableSeats })
-  );
+  getCurrentAvailableSeats()
+    .then((result) => Number.parseInt(result || 0))
+    .then((availableSeats) => res.json({ availableSeats }));
 });
 
 app.get('/reserve_seat', (_req, res) => {
@@ -63,15 +63,17 @@ app.get('/process', (req, res) => {
   res.json({ status: 'Queue processing' });
 
   queue.process('reserve_seat', (_job, done) => {
-    getCurrentAvailableSeats().then((availableSeats) => {
-      reservationEnabled = availableSeats <= 1 ? false : availableSeats;
+    getCurrentAvailableSeats()
+      .then((result) => Number.parseInt(result || 0))
+      .then((availableSeats) => {
+        reservationEnabled = availableSeats <= 1 ? false : availableSeats;
 
-      if (availableSeats >= 1) {
-        reserveSeat(availableSeats - 1).then(() => done());
-      } else {
-        done(new Error('Not enough seats available'));
-      }
-    });
+        if (availableSeats >= 1) {
+          reserveSeat(availableSeats - 1).then(() => done());
+        } else {
+          done(new Error('Not enough seats available'));
+        }
+      });
   });
 });
 
