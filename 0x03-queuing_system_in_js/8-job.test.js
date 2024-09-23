@@ -53,7 +53,7 @@ describe('createPushNotificationsJobs', () => {
     });
   });
 
-  it('registering the process event handler', (done) => {
+  it('registering the progress event handler', (done) => {
     QUEUE.testMode.jobs[0].addListener('progress', () => {
       expect(
         spy.calledWith(
