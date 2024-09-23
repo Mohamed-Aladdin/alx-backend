@@ -6,7 +6,7 @@ export default function createPushNotificationsJobs(jobs, queue) {
   }
 
   jobs.forEach((item) => {
-    const job = queue.create('push_notification_code_3');
+    const job = queue.create('push_notification_code_3', item);
 
     job
       .on('enqueue', () => {
