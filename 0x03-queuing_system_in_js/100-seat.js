@@ -85,7 +85,7 @@ app.listen(PORT, () => {
     })
     .catch((err) => {
       console.log(
-        `Application failed to start on port ${PORT}, Error: ${err.message.toString()}`
+        `Application failed to start on port ${PORT}, Error: ${err.toString()}`
       );
     });
 });
