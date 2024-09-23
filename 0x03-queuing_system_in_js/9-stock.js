@@ -30,7 +30,11 @@ const listProducts = [
 ];
 
 function getItemById(id) {
-  return listProducts.find((product) => product.id === id);
+  const product = listProducts.find((product) => product.id === id);
+
+  if (product) {
+    return Object.fromEntries(Object.entries(product));
+  }
 }
 
 async function reserveStockById(itemId, stock) {
