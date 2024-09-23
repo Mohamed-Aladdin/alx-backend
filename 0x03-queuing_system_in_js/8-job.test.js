@@ -77,6 +77,7 @@ describe('createPushNotificationsJobs', () => {
           'Failed to send'
         )
       ).to.be.true;
+      done();
     });
     QUEUE.testMode.jobs[0].emit('failed', new Error('Failed to send'));
   });
@@ -90,6 +91,7 @@ describe('createPushNotificationsJobs', () => {
           'completed'
         )
       ).to.be.true;
+      done();
     });
     QUEUE.testMode.jobs[0].emit('complete');
   });
