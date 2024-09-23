@@ -68,9 +68,9 @@ app.get('/list_products/:itemId(\\d+)', (req, res) => {
   getCurrentReservedStockById(itemId)
     .then((result) => Number.parseInt(result || 0))
     .then((reservedStock) => {
-      productItem.currentQuantity =
-        productItem.initialAvailableQuantity - reservedStock;
-      res.json(productItem);
+      product.currentQuantity =
+        product.initialAvailableQuantity - reservedStock;
+      res.json(product);
     });
 });
 
