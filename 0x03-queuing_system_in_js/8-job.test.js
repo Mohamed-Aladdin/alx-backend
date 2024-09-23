@@ -42,7 +42,7 @@ describe('createPushNotificationsJobs', () => {
 
     createPushNotificationsJobs(jobs, QUEUE);
     expect(QUEUE.testMode.jobs.length).to.equal(2);
-    expect(QUEUE.testMode.jobs[0]).to.deep.equal(jobs[0]);
+    expect(QUEUE.testMode.jobs[0].data).to.deep.equal(jobs[0]);
     expect(QUEUE.testMode.jobs[0].type).to.equal('push_notification_code_3');
 
     QUEUE.process('push_notification_code_3', () => {
