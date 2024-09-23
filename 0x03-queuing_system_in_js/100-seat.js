@@ -41,12 +41,7 @@ app.get('/reserve_seat', (_req, res) => {
 
     job
       .on('failed', (err) => {
-        console.log(
-          'Seat reservation job',
-          job.id,
-          'failed:',
-          err.message.toString()
-        );
+        console.log('Seat reservation job', job.id, 'failed:', err.toString());
       })
       .on('complete', () => {
         console.log('Seat reservation job', job.id, 'completed');
