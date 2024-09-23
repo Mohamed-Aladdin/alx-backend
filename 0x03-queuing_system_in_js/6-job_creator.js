@@ -9,7 +9,7 @@ const job = queue.create('push_notification_code', {
 
 job
   .on('enqueue', () => {
-    console.log('Notification job created: ', job.id);
+    console.log('Notification job created:', job.id);
   })
   .on('complete', () => {
     console.log('Notification job completed');

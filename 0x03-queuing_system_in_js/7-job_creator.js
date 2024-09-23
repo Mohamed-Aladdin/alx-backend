@@ -54,16 +54,16 @@ jobs.forEach((item) => {
 
   job
     .on('enqueue', () => {
-      console.log('Notification job created: ', job.id);
+      console.log('Notification job created:', job.id);
     })
     .on('complete', () => {
-      console.log('Notification job ', job.id, ' completed');
+      console.log('Notification job', job.id, 'completed');
     })
     .on('failed', (err) => {
-      console.log('Notification job ', job.id, 'failed: ', err.toString());
+      console.log('Notification job', job.id, 'failed:', err.toString());
     })
     .on('progress', (progress, _data) => {
-      console.log('Notification job ', job.id, ' ', progress, '% complete');
+      console.log('Notification job', job.id, `${progress}% complete`);
     });
 
   job.save();

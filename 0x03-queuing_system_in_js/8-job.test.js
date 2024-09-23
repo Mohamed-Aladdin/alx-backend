@@ -20,6 +20,12 @@ describe('createPushNotificationsJobs', () => {
     spy.resetHistory();
   });
 
+  it('displays an error message if jobs is not an array', () => {
+    expect(
+      createPushNotificationsJobs.bind(createPushNotificationsJobs, {}, QUEUE)
+    ).to.throw('Jobs is not an array');
+  });
+
   it('adding jobs to the queue', (done) => {
     expect(QUEUE.testMode.jobs.length).to.equal(0);
 
