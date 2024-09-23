@@ -1,4 +1,4 @@
-import { Queue, Job, createQueue } from 'kue';
+import { Queue, Job } from 'kue';
 
 export default function createPushNotificationsJobs(jobs, queue) {
   if (!(jobs instanceof Array)) {
